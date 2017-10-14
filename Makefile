@@ -53,5 +53,13 @@ $(BINDIR)/informer-gen:
 
 # This target runs all required generators against our API types.
 generate: .generate_exes $(TYPES_FILES)
+	# Generate deep copies
+	$(BINDIR)/deepcopy-gen \
+		--v 1 --logtostderr \
+		--go-header-file "$${GOPATH}/src/github.com/kubernetes/repo-infra/verify/boilerplate/boilerplate.go.txt" \
+		--input-dirs "$(PACKAGE_NAME)/pkg/apis/hypervisor" \
+		--input-dirs "$(PACKAGE_NAME)/pkg/apis/hypervisor/v1alpha1" \
+		--output-file-base zz_generated.deepcopy
 	# generate all pkg/client contents
 	$(HACK_DIR)/update-client-gen.sh
+	
