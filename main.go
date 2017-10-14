@@ -6,10 +6,9 @@ import (
 	"net"
 	"time"
 
-	"k8s.io/client-go/rest"
 	libvirt "github.com/digitalocean/go-libvirt"
+	"k8s.io/client-go/rest"
 
-	"github.com/dippynark/kube-qemu/pkg/apis/hypervisor/v1alpha1"
 	"github.com/dippynark/kube-qemu/pkg/client"
 	factory "github.com/dippynark/kube-qemu/pkg/informers/externalversions"
 )
@@ -44,10 +43,16 @@ func main() {
 	// create an instance of our own API client
 	// rest.Config holds the common attributes for Kubernetes client initialisation
 	cl, err := client.NewForConfig(&rest.Config{
-		Host: *apiserverURL
+		Host: *apiserverURL,
 	})
 	if err != nil {
 		log.Fatalf("error creating api client: %s", err.Error())
 	}
 	log.Printf("Created Kubernetes client")
+
+	// we use a shared informer from the informer factory, to save calls to the
+	// API as we grow our application and so state is consistent between our
+	// control loops. We set a resync period of 30 seconds, in case any
+	// create/replace/update/delete operations are missed when watching
+	sharedFactory = factory.NewSharedInformerFactory(cl, time.Second*30)
 }
