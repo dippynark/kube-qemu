@@ -1,4 +1,5 @@
 // +k8s:deepcopy-gen=package,register
+// +groupName=hypervisor.k8s.co
 
-// Package v1alpha1 is the v1alpha1 version of the API.
+// Package hypervisor is the internal version of the API.
 package hypervisor
