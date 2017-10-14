@@ -11,7 +11,7 @@ import (
 
 	"github.com/dippynark/kube-qemu/pkg/apis/hypervisor/v1alpha1"
 	"github.com/dippynark/kube-qemu/pkg/client"
-	//factory "github.com/dippynark/kube-qemu/pkg/informers/externalversions"
+	factory "github.com/dippynark/kube-qemu/pkg/informers/externalversions"
 )
 
 var (
