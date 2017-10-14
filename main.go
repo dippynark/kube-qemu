@@ -21,6 +21,12 @@ var (
 	network = flag.String("network", "unix", "tcp, unix")
 	address = flag.String("address", "/var/run/libvirt/libvirt-sock", "Connection address")
 
+	// sharedFactory is a shared informer factory that is used a a cache for
+	// items in the API server. It saves each informer listing and watching the
+	// same resources independently of each other, thus providing more up to
+	// date results with less 'effort'
+	sharedFactory factory.SharedInformerFactory
+
 	// stopCh can be used to stop all the informer, as well as control loops within the application.
 	stopCh = make(chan struct{})
 )
@@ -39,6 +45,8 @@ func main() {
 	if err := l.Connect(); err != nil {
 		log.Fatalf("failed to connect: %v", err)
 	}
+
+	log.Printf("Created QEMU client")
 
 	// create an instance of our own API client
 	// rest.Config holds the common attributes for Kubernetes client initialisation

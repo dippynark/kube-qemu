@@ -14,14 +14,14 @@ limitations under the License.
 package v1alpha1
 
 import (
-	"github.com/munnerz/k8s-api-pager-demo/pkg/apis/pager"
+	"github.com/dippynark/kube-qemu/pkg/apis/hypervisor"
 	metav1 "k8s.io/apimachinery/pkg/apis/meta/v1"
 	"k8s.io/apimachinery/pkg/runtime"
 	"k8s.io/apimachinery/pkg/runtime/schema"
 )
 
 // SchemeGroupVersion is group version used to register these objects
-var SchemeGroupVersion = schema.GroupVersion{Group: pager.GroupName, Version: "v1alpha1"}
+var SchemeGroupVersion = schema.GroupVersion{Group: hypervisor.GroupName, Version: "v1alpha1"}
 
 // Resource takes an unqualified resource and returns a Group qualified GroupResource
 func Resource(resource string) schema.GroupResource {
