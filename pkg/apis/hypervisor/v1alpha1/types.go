@@ -5,6 +5,7 @@ import (
 )
 
 // +genclient=true
+// +k8s:deepcopy-gen:interfaces=k8s.io/apimachinery/pkg/runtime.Object
 
 type VirtualMachine struct {
 	metav1.TypeMeta   `json:",inline"`
@@ -13,6 +14,8 @@ type VirtualMachine struct {
 	Spec   VirtualMachineSpec   `json:"spec,omitempty"`
 	Status VirtualMachineStatus `json:"status,omitempty"`
 }
+
+// +k8s:deepcopy-gen:interfaces=k8s.io/apimachinery/pkg/runtime.Object
 
 type VirtualMachineList struct {
 	metav1.TypeMeta   `json:",inline"`
