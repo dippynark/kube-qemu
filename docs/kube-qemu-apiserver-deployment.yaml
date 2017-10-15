@@ -60,10 +60,10 @@ spec:
 apiVersion: apiregistration.k8s.io/v1beta1
 kind: APIService
 metadata:
-  name: v1alpha1.hypervisor.k8s.co
+  name: v1alpha1.hypervisor.lukeaddison.co.uk
 spec:
   insecureSkipTLSVerify: true
-  group: hypervisor.k8s.co
+  group: hypervisor.lukeaddison.co.uk
   groupPriorityMinimum: 1000
   versionPriority: 15
   service:

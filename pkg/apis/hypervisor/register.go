@@ -6,7 +6,7 @@ import (
 )
 
 // GroupName is the group name used in this package
-const GroupName = "hypervisor.k8s.co"
+const GroupName = "hypervisor.lukeaddison.co.uk"
 
 var (
 	SchemeBuilder = runtime.NewSchemeBuilder(addKnownTypes)
