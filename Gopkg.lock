@@ -68,10 +68,10 @@
   revision = "a339d0ac95059a40f3e505ef3be370e9a902b852"
 
 [[projects]]
+  branch = "master"
   name = "github.com/docker/distribution"
-  packages = ["digest","reference"]
-  revision = "48294d928ced5dd9b378f7fd7c6f5da3ff3f2c89"
-  version = "v2.6.2"
+  packages = ["digestset","reference"]
+  revision = "7484e51bf6af0d3b1a849644cdaced3cfcf13617"
 
 [[projects]]
   branch = "master"
@@ -224,6 +224,12 @@
   revision = "cca7078d478f8520f85629ad7c68962d31ed7682"
 
 [[projects]]
+  name = "github.com/opencontainers/go-digest"
+  packages = ["."]
+  revision = "279bed98673dd5bef374d3b6e4b09e2af76183bf"
+  version = "v1.0.0-rc1"
+
+[[projects]]
   name = "github.com/pborman/uuid"
   packages = ["."]
   revision = "e790cca94e6cc75c7064b1332e63811d4aae1a53"
@@ -362,19 +368,37 @@
 
 [[projects]]
   branch = "master"
+  name = "k8s.io/code-generator"
+  packages = ["cmd/client-gen","cmd/client-gen/args","cmd/client-gen/generators","cmd/client-gen/generators/fake","cmd/client-gen/generators/scheme","cmd/client-gen/generators/util","cmd/client-gen/path","cmd/client-gen/types","cmd/conversion-gen","cmd/conversion-gen/generators","cmd/deepcopy-gen","cmd/defaulter-gen","cmd/informer-gen","cmd/informer-gen/generators","cmd/lister-gen","cmd/lister-gen/generators"]
+  revision = "77491151d5f87cdc19d40f5746b4d90f8d20f180"
+
+[[projects]]
+  branch = "master"
+  name = "k8s.io/gengo"
+  packages = ["args","examples/deepcopy-gen/generators","examples/defaulter-gen/generators","examples/set-gen/sets","generator","namer","parser","types"]
+  revision = "70ad626ed2d7a483d89d2c4c56364d60b48ee8fc"
+
+[[projects]]
+  branch = "master"
   name = "k8s.io/kube-openapi"
   packages = ["pkg/builder","pkg/common","pkg/handler","pkg/util"]
   revision = "abfc5fbe1cf87ee697db107fdfd24c32fe4397a8"
 
 [[projects]]
   name = "k8s.io/kubernetes"
-  packages = ["pkg/api","pkg/api/install","pkg/api/v1","pkg/apis/extensions","pkg/apis/networking","pkg/util/parsers","pkg/util/pointer","staging/src/k8s.io/sample-apiserver/pkg/apis/wardle"]
-  revision = "f38e43b221d08850172a9a4ea785a86a3ffa3b3a"
-  version = "v1.8.1"
+  packages = ["pkg/api","pkg/api/install","pkg/api/v1","pkg/apis/extensions","pkg/apis/networking","pkg/util/parsers","pkg/util/pointer","staging/src/k8s.io/sample-apiserver/pkg/admission/plugin/banflunder","staging/src/k8s.io/sample-apiserver/pkg/apis/wardle"]
+  revision = "0b9efaeb34a2fc51ff8e4d34ad9bc6375459c4a4"
+  version = "v1.8.0"
+
+[[projects]]
+  branch = "master"
+  name = "k8s.io/sample-apiserver"
+  packages = ["pkg/admission/wardleinitializer","pkg/apis/wardle","pkg/apis/wardle/install","pkg/apis/wardle/v1alpha1","pkg/client/clientset_generated/internalclientset","pkg/client/clientset_generated/internalclientset/scheme","pkg/client/clientset_generated/internalclientset/typed/wardle/internalversion","pkg/client/informers_generated/internalversion","pkg/client/informers_generated/internalversion/internalinterfaces","pkg/client/informers_generated/internalversion/wardle","pkg/client/informers_generated/internalversion/wardle/internalversion","pkg/client/listers_generated/wardle/internalversion"]
+  revision = "aa1ce319891e390026f7f7759dceb03c99156a4b"
 
 [solve-meta]
   analyzer-name = "dep"
   analyzer-version = 1
-  inputs-digest = "345186d431c9d1ae36237f28764b2186e4037ea55c8d8e0a4d4e0c69c0acc423"
+  inputs-digest = "64734a434dedab6b6710fd5f8f482665cf293186cb0e6e14b2313e438d427818"
   solver-name = "gps-cdcl"
   solver-version = 1

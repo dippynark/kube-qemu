@@ -57,7 +57,7 @@ required = [
   name = "k8s.io/api"
   branch = "release-1.8"
 
-[[constraint]]
+[[override]]
   name = "github.com/docker/distribution"
   branch = "master"
 

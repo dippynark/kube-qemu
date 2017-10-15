@@ -20,13 +20,11 @@ import (
 
 	"github.com/spf13/cobra"
 
-	clientset "github.com/dippynark/kube-qemu/pkg/client/internalclientset"
-	informers "github.com/dippynark/kube-qemu/pkg/informers/internalversion"
+	"github.com/dippynark/kube-qemu/pkg/apiserver"
 	"k8s.io/api/rbac/v1alpha1"
 	utilerrors "k8s.io/apimachinery/pkg/util/errors"
 	genericapiserver "k8s.io/apiserver/pkg/server"
 	genericoptions "k8s.io/apiserver/pkg/server/options"
-	"k8s.io/kubernetes/staging/src/k8s.io/kube-aggregator/pkg/apiserver"
 )
 
 const defaultEtcdPathPrefix = "/registry/hypervisor.kubernetes.io"
@@ -104,12 +102,12 @@ func (o HypervisorServerOptions) Config() (*apiserver.Config, error) {
 		return nil, err
 	}
 
-	client, err := clientset.NewForConfig(serverConfig.LoopbackClientConfig)
+	/*client, err := clientset.NewForConfig(serverConfig.LoopbackClientConfig)
 	if err != nil {
 		return nil, err
 	}
 	informerFactory := informers.NewSharedInformerFactory(client, serverConfig.LoopbackClientConfig.Timeout)
-	/*admissionInitializer, err := hypervisorinitializer.New(informerFactory)
+	admissionInitializer, err := hypervisorinitializer.New(informerFactory)
 	if err != nil {
 		return nil, err
 	}
@@ -125,7 +123,7 @@ func (o HypervisorServerOptions) Config() (*apiserver.Config, error) {
 	return config, nil
 }
 
-func (o HypervisorleServerOptions) RunHypervisorServer(stopCh <-chan struct{}) error {
+func (o HypervisorServerOptions) RunHypervisorServer(stopCh <-chan struct{}) error {
 	config, err := o.Config()
 	if err != nil {
 		return err
