@@ -20,11 +20,15 @@ import (
 
 	"github.com/spf13/cobra"
 
+	"github.com/dippynark/kube-qemu/pkg/admission/hypervisorinitializer"
+	"github.com/dippynark/kube-qemu/pkg/admission/plugin/banvirtualmachine"
 	"github.com/dippynark/kube-qemu/pkg/apiserver"
 	"k8s.io/api/rbac/v1alpha1"
 	utilerrors "k8s.io/apimachinery/pkg/util/errors"
 	genericapiserver "k8s.io/apiserver/pkg/server"
 	genericoptions "k8s.io/apiserver/pkg/server/options"
+	"k8s.io/client-go/informers"
+	"k8s.io/metrics/pkg/client/clientset_generated/clientset"
 )
 
 const defaultEtcdPathPrefix = "/registry/hypervisor.lukeaddison.co.uk"
@@ -90,7 +94,7 @@ func (o *HypervisorServerOptions) Complete() error {
 
 func (o HypervisorServerOptions) Config() (*apiserver.Config, error) {
 	// register admission plugins
-	//banflunder.Register(o.Admission.Plugins)
+	banvirtualmachine.Register(o.Admission.Plugins)
 
 	// TODO have a "real" external address
 	if err := o.RecommendedOptions.SecureServing.MaybeDefaultWithSelfSignedCerts("localhost", nil, []net.IP{net.ParseIP("127.0.0.1")}); err != nil {
@@ -102,7 +106,7 @@ func (o HypervisorServerOptions) Config() (*apiserver.Config, error) {
 		return nil, err
 	}
 
-	/*client, err := clientset.NewForConfig(serverConfig.LoopbackClientConfig)
+	client, err := clientset.NewForConfig(serverConfig.LoopbackClientConfig)
 	if err != nil {
 		return nil, err
 	}
@@ -114,7 +118,7 @@ func (o HypervisorServerOptions) Config() (*apiserver.Config, error) {
 
 	if err := o.Admission.ApplyTo(&serverConfig.Config, serverConfig.SharedInformerFactory, admissionInitializer); err != nil {
 		return nil, err
-	}*/
+	}
 
 	config := &apiserver.Config{
 		GenericConfig: serverConfig,

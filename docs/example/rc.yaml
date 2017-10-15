@@ -1,0 +1,27 @@
+apiVersion: v1
+kind: ReplicationController
+metadata:
+  name: hypervisor-server
+  namespace: hypervisor
+  labels:
+    apiserver: "true"
+spec:
+  replicas: 1
+  selector:
+    apiserver: "true"
+  template:
+    metadata:
+      labels:
+        apiserver: "true"
+    spec:
+      serviceAccountName: apiserver
+      containers:
+      - name: kube-qemu
+        image: dippynark/kube-qemu-apiserver:canary
+        imagePullPolicy: Always
+        args:
+        - "kube-qemu-apiserver"
+        - "--etcd-servers=http://localhost:2379"
+        - --v=100
+      - name: etcd
+        image: quay.io/coreos/etcd:v3.0.17

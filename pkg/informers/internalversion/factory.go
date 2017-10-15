@@ -19,15 +19,16 @@ limitations under the License.
 package internalversion
 
 import (
+	reflect "reflect"
+	sync "sync"
+	time "time"
+
 	internalclientset "github.com/dippynark/kube-qemu/pkg/client/internalclientset"
 	hypervisor "github.com/dippynark/kube-qemu/pkg/informers/internalversion/hypervisor"
 	internalinterfaces "github.com/dippynark/kube-qemu/pkg/informers/internalversion/internalinterfaces"
 	runtime "k8s.io/apimachinery/pkg/runtime"
 	schema "k8s.io/apimachinery/pkg/runtime/schema"
 	cache "k8s.io/client-go/tools/cache"
-	reflect "reflect"
-	sync "sync"
-	time "time"
 )
 
 type sharedInformerFactory struct {
