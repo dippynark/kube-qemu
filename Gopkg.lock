@@ -69,12 +69,6 @@
 
 [[projects]]
   branch = "master"
-  name = "github.com/docker/distribution"
-  packages = ["digestset","reference"]
-  revision = "7484e51bf6af0d3b1a849644cdaced3cfcf13617"
-
-[[projects]]
-  branch = "master"
   name = "github.com/elazarl/go-bindata-assetfs"
   packages = ["."]
   revision = "30f82fa23fd844bd5bb1e5f216db87fd77b5eb43"
@@ -222,12 +216,6 @@
   name = "github.com/mxk/go-flowrate"
   packages = ["flowrate"]
   revision = "cca7078d478f8520f85629ad7c68962d31ed7682"
-
-[[projects]]
-  name = "github.com/opencontainers/go-digest"
-  packages = ["."]
-  revision = "279bed98673dd5bef374d3b6e4b09e2af76183bf"
-  version = "v1.0.0-rc1"
 
 [[projects]]
   name = "github.com/pborman/uuid"
@@ -384,15 +372,9 @@
   packages = ["pkg/builder","pkg/common","pkg/handler","pkg/util"]
   revision = "abfc5fbe1cf87ee697db107fdfd24c32fe4397a8"
 
-[[projects]]
-  name = "k8s.io/kubernetes"
-  packages = ["pkg/api","pkg/api/install","pkg/api/v1","pkg/apis/extensions","pkg/apis/networking","pkg/util/parsers","pkg/util/pointer"]
-  revision = "0b9efaeb34a2fc51ff8e4d34ad9bc6375459c4a4"
-  version = "v1.8.0"
-
 [solve-meta]
   analyzer-name = "dep"
   analyzer-version = 1
-  inputs-digest = "848ca3132ff0cb880fa8a4ed71b341af5e9c2eff87d51e13c7300db709643211"
+  inputs-digest = "8b4cbf4dda2aac524248857cb8a804b855247285fe04ab4965fe16abeab8166b"
   solver-name = "gps-cdcl"
   solver-version = 1
