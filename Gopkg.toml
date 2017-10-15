@@ -20,6 +20,15 @@
 #  name = "github.com/x/y"
 #  version = "2.4.0"
 
+required = [
+  "k8s.io/code-generator/cmd/client-gen",
+  "k8s.io/code-generator/cmd/conversion-gen",
+  "k8s.io/code-generator/cmd/deepcopy-gen",
+  "k8s.io/code-generator/cmd/defaulter-gen",
+  "k8s.io/code-generator/cmd/informer-gen",
+  "k8s.io/code-generator/cmd/lister-gen",
+]
+
 [[constraint]]
   branch = "master"
   name = "github.com/digitalocean/go-libvirt"
@@ -48,14 +57,14 @@
   name = "k8s.io/api"
   branch = "release-1.8"
 
+[[constraint]]
+  name = "github.com/docker/distribution"
+  branch = "master"
+
 [[override]]
   name = "github.com/ugorji/go"
   revision = "8c0409fcbb70099c748d71f714529204975f6c3f" #newer revisions break backward compatibility
 
-[[constraint]]
-  name = "github.com/coreos/etcd"
-  branch = "release-3.2"
-
-[[constraint]]
+[[override]]
   name = "google.golang.org/grpc"
-  version = "1.5.0"
+  version = "=1.2.1"
