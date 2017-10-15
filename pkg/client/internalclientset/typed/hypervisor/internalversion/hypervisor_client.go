@@ -26,7 +26,7 @@ type HypervisorInterface interface {
 	VirtualMachinesGetter
 }
 
-// HypervisorClient is used to interact with features provided by the hypervisor group.
+// HypervisorClient is used to interact with features provided by the hypervisor.lukeaddison.co.uk group.
 type HypervisorClient struct {
 	restClient rest.Interface
 }
@@ -64,7 +64,7 @@ func New(c rest.Interface) *HypervisorClient {
 }
 
 func setConfigDefaults(config *rest.Config) error {
-	g, err := scheme.Registry.Group("hypervisor")
+	g, err := scheme.Registry.Group("hypervisor.lukeaddison.co.uk")
 	if err != nil {
 		return err
 	}

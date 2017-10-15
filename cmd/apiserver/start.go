@@ -21,14 +21,13 @@ import (
 	"github.com/spf13/cobra"
 
 	"github.com/dippynark/kube-qemu/pkg/admission/hypervisorinitializer"
-	"github.com/dippynark/kube-qemu/pkg/admission/plugin/banvirtualmachine"
+	"github.com/dippynark/kube-qemu/pkg/apis/hypervisor/v1alpha1"
 	"github.com/dippynark/kube-qemu/pkg/apiserver"
-	"k8s.io/api/rbac/v1alpha1"
+	clientset "github.com/dippynark/kube-qemu/pkg/client/internalclientset"
+	informers "github.com/dippynark/kube-qemu/pkg/informers/internalversion"
 	utilerrors "k8s.io/apimachinery/pkg/util/errors"
 	genericapiserver "k8s.io/apiserver/pkg/server"
 	genericoptions "k8s.io/apiserver/pkg/server/options"
-	"k8s.io/client-go/informers"
-	"k8s.io/metrics/pkg/client/clientset_generated/clientset"
 )
 
 const defaultEtcdPathPrefix = "/registry/hypervisor.lukeaddison.co.uk"
@@ -94,7 +93,7 @@ func (o *HypervisorServerOptions) Complete() error {
 
 func (o HypervisorServerOptions) Config() (*apiserver.Config, error) {
 	// register admission plugins
-	banvirtualmachine.Register(o.Admission.Plugins)
+	//banvirtualmachine.Register(o.Admission.Plugins)
 
 	// TODO have a "real" external address
 	if err := o.RecommendedOptions.SecureServing.MaybeDefaultWithSelfSignedCerts("localhost", nil, []net.IP{net.ParseIP("127.0.0.1")}); err != nil {

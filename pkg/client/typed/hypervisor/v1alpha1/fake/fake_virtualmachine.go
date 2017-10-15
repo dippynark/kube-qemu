@@ -32,9 +32,9 @@ type FakeVirtualMachines struct {
 	ns   string
 }
 
-var virtualmachinesResource = schema.GroupVersionResource{Group: "hypervisor", Version: "v1alpha1", Resource: "virtualmachines"}
+var virtualmachinesResource = schema.GroupVersionResource{Group: "hypervisor.lukeaddison.co.uk", Version: "v1alpha1", Resource: "virtualmachines"}
 
-var virtualmachinesKind = schema.GroupVersionKind{Group: "hypervisor", Version: "v1alpha1", Kind: "VirtualMachine"}
+var virtualmachinesKind = schema.GroupVersionKind{Group: "hypervisor.lukeaddison.co.uk", Version: "v1alpha1", Kind: "VirtualMachine"}
 
 func (c *FakeVirtualMachines) Create(virtualMachine *v1alpha1.VirtualMachine) (result *v1alpha1.VirtualMachine, err error) {
 	obj, err := c.Fake.

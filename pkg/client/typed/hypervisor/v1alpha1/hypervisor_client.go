@@ -28,7 +28,7 @@ type HypervisorV1alpha1Interface interface {
 	VirtualMachinesGetter
 }
 
-// HypervisorV1alpha1Client is used to interact with features provided by the hypervisor group.
+// HypervisorV1alpha1Client is used to interact with features provided by the hypervisor.lukeaddison.co.uk group.
 type HypervisorV1alpha1Client struct {
 	restClient rest.Interface
 }
