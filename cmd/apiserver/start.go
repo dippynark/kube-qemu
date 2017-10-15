@@ -27,7 +27,7 @@ import (
 	genericoptions "k8s.io/apiserver/pkg/server/options"
 )
 
-const defaultEtcdPathPrefix = "/registry/hypervisor.kubernetes.io"
+const defaultEtcdPathPrefix = "/registry/hypervisor.k8s.io"
 
 type HypervisorServerOptions struct {
 	RecommendedOptions *genericoptions.RecommendedOptions
