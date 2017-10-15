@@ -13,6 +13,11 @@ IMAGE_TAGS := canary
 
 CMDS := controller apiserver
 
+# Util targets
+##############
+
+generate: .generate_files
+
 # Docker targets
 ################
 
