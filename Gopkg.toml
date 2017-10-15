@@ -53,9 +53,9 @@
   revision = "8c0409fcbb70099c748d71f714529204975f6c3f" #newer revisions break backward compatibility
 
 [[constraint]]
-  branch = "master"
   name = "github.com/coreos/etcd"
+  branch = "release-3.2"
 
 [[constraint]]
   name = "google.golang.org/grpc"
-  version = "1.6.0"
+  version = "1.5.0"
