@@ -386,19 +386,19 @@
 
 [[projects]]
   name = "k8s.io/kubernetes"
-  packages = ["pkg/api","pkg/api/install","pkg/api/v1","pkg/apis/extensions","pkg/apis/networking","pkg/util/parsers","pkg/util/pointer","staging/src/k8s.io/sample-apiserver/pkg/admission/plugin/banflunder","staging/src/k8s.io/sample-apiserver/pkg/apis/wardle"]
+  packages = ["pkg/api","pkg/api/install","pkg/api/v1","pkg/apis/extensions","pkg/apis/networking","pkg/util/parsers","pkg/util/pointer"]
   revision = "0b9efaeb34a2fc51ff8e4d34ad9bc6375459c4a4"
   version = "v1.8.0"
 
 [[projects]]
   branch = "master"
   name = "k8s.io/sample-apiserver"
-  packages = ["pkg/admission/wardleinitializer","pkg/apis/wardle","pkg/apis/wardle/install","pkg/apis/wardle/v1alpha1","pkg/client/clientset_generated/internalclientset","pkg/client/clientset_generated/internalclientset/scheme","pkg/client/clientset_generated/internalclientset/typed/wardle/internalversion","pkg/client/informers_generated/internalversion","pkg/client/informers_generated/internalversion/internalinterfaces","pkg/client/informers_generated/internalversion/wardle","pkg/client/informers_generated/internalversion/wardle/internalversion","pkg/client/listers_generated/wardle/internalversion"]
+  packages = ["pkg/apis/wardle","pkg/apis/wardle/install","pkg/apis/wardle/v1alpha1","pkg/client/clientset_generated/internalclientset","pkg/client/clientset_generated/internalclientset/scheme","pkg/client/clientset_generated/internalclientset/typed/wardle/internalversion","pkg/client/informers_generated/internalversion","pkg/client/informers_generated/internalversion/internalinterfaces","pkg/client/informers_generated/internalversion/wardle","pkg/client/informers_generated/internalversion/wardle/internalversion","pkg/client/listers_generated/wardle/internalversion"]
   revision = "aa1ce319891e390026f7f7759dceb03c99156a4b"
 
 [solve-meta]
   analyzer-name = "dep"
   analyzer-version = 1
-  inputs-digest = "64734a434dedab6b6710fd5f8f482665cf293186cb0e6e14b2313e438d427818"
+  inputs-digest = "c48c6bc097997e662cb280471145a3d35ba7416f416a6faae50be54e398fb9ea"
   solver-name = "gps-cdcl"
   solver-version = 1
