@@ -23,7 +23,7 @@ TYPES_FILES = $(shell find pkg/apis -name types.go)
 # Targets for building k8s code generators
 #################################################
 .generate_exes: .get_deps \
-				$(BINDIR)/defaulter-gen \
+		$(BINDIR)/defaulter-gen \
                 $(BINDIR)/deepcopy-gen \
                 $(BINDIR)/conversion-gen \
                 $(BINDIR)/client-gen \

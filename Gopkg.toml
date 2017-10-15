@@ -20,7 +20,6 @@
 #  name = "github.com/x/y"
 #  version = "2.4.0"
 
-
 [[constraint]]
   branch = "master"
   name = "github.com/digitalocean/go-libvirt"
@@ -30,13 +29,25 @@
   name = "github.com/yosssi/gohtml"
 
 [[constraint]]
-  branch = "master"
-  name = "github.com/golang/glog"
+  branch = "master" # I want the latest commit from this branch, not just the latest tag or the version used by client-go.
+  name = "github.com/stretchr/testify"
 
 [[constraint]]
-  branch = "master"
+  name = "k8s.io/apiextensions-apiserver"
+  branch = "release-1.8"
+
+[[constraint]]
   name = "k8s.io/apimachinery"
+  branch = "release-1.8"
 
 [[constraint]]
   name = "k8s.io/client-go"
-  version = "3.0.0"
+  branch = "release-5.0"
+
+[[constraint]]
+  name = "k8s.io/api"
+  branch = "release-1.8"
+
+[[override]]
+  name = "github.com/ugorji/go"
+  revision = "8c0409fcbb70099c748d71f714529204975f6c3f" #newer revisions break backward compatibility
