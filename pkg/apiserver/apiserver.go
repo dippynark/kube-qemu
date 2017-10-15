@@ -14,7 +14,6 @@ limitations under the License.
 package apiserver
 
 import (
-	"k8s.io/api/rbac/v1alpha1"
 	"k8s.io/apimachinery/pkg/apimachinery/announced"
 	"k8s.io/apimachinery/pkg/apimachinery/registered"
 	metav1 "k8s.io/apimachinery/pkg/apis/meta/v1"
@@ -24,9 +23,10 @@ import (
 	"k8s.io/apimachinery/pkg/version"
 	"k8s.io/apiserver/pkg/registry/rest"
 	genericapiserver "k8s.io/apiserver/pkg/server"
-	"k8s.io/kubernetes/pkg/api/install"
 
 	"github.com/dippynark/kube-qemu/pkg/apis/hypervisor"
+	"github.com/dippynark/kube-qemu/pkg/apis/hypervisor/install"
+	"github.com/dippynark/kube-qemu/pkg/apis/hypervisor/v1alpha1"
 	hypervisorregistry "github.com/dippynark/kube-qemu/pkg/registry"
 	virtualmachinestorage "github.com/dippynark/kube-qemu/pkg/registry/hypervisor/virtualmachine"
 )
