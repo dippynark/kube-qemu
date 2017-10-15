@@ -390,15 +390,9 @@
   revision = "0b9efaeb34a2fc51ff8e4d34ad9bc6375459c4a4"
   version = "v1.8.0"
 
-[[projects]]
-  branch = "master"
-  name = "k8s.io/sample-apiserver"
-  packages = ["pkg/apis/wardle","pkg/apis/wardle/install","pkg/apis/wardle/v1alpha1","pkg/client/clientset_generated/internalclientset","pkg/client/clientset_generated/internalclientset/scheme","pkg/client/clientset_generated/internalclientset/typed/wardle/internalversion","pkg/client/informers_generated/internalversion","pkg/client/informers_generated/internalversion/internalinterfaces","pkg/client/informers_generated/internalversion/wardle","pkg/client/informers_generated/internalversion/wardle/internalversion","pkg/client/listers_generated/wardle/internalversion"]
-  revision = "aa1ce319891e390026f7f7759dceb03c99156a4b"
-
 [solve-meta]
   analyzer-name = "dep"
   analyzer-version = 1
-  inputs-digest = "c48c6bc097997e662cb280471145a3d35ba7416f416a6faae50be54e398fb9ea"
+  inputs-digest = "848ca3132ff0cb880fa8a4ed71b341af5e9c2eff87d51e13c7300db709643211"
   solver-name = "gps-cdcl"
   solver-version = 1
