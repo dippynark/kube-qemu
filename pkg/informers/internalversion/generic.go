@@ -20,6 +20,7 @@ package internalversion
 
 import (
 	"fmt"
+	hypervisor "github.com/dippynark/kube-qemu/pkg/apis/hypervisor"
 	schema "k8s.io/apimachinery/pkg/runtime/schema"
 	cache "k8s.io/client-go/tools/cache"
 )
@@ -50,6 +51,10 @@ func (f *genericInformer) Lister() cache.GenericLister {
 // TODO extend this to unknown resources with a client pool
 func (f *sharedInformerFactory) ForResource(resource schema.GroupVersionResource) (GenericInformer, error) {
 	switch resource {
+	// Group=Hypervisor, Version=InternalVersion
+	case hypervisor.SchemeGroupVersion.WithResource("virtualmachines"):
+		return &genericInformer{resource: resource.GroupResource(), informer: f.Hypervisor().InternalVersion().VirtualMachines().Informer()}, nil
+
 	}
 
 	return nil, fmt.Errorf("no informer found for %v", resource)

@@ -18,4 +18,21 @@ package fake
 
 import (
 	internalversion "github.com/dippynark/kube-qemu/pkg/client/internalclientset/typed/hypervisor/internalversion"
+	rest "k8s.io/client-go/rest"
+	testing "k8s.io/client-go/testing"
 )
+
+type FakeHypervisor struct {
+	*testing.Fake
+}
+
+func (c *FakeHypervisor) VirtualMachines(namespace string) internalversion.VirtualMachineInterface {
+	return &FakeVirtualMachines{c, namespace}
+}
+
+// RESTClient returns a RESTClient that is used to communicate
+// with API server by this client implementation.
+func (c *FakeHypervisor) RESTClient() rest.Interface {
+	var ret *rest.RESTClient
+	return ret
+}

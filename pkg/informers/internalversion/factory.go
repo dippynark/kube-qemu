@@ -20,6 +20,7 @@ package internalversion
 
 import (
 	internalclientset "github.com/dippynark/kube-qemu/pkg/client/internalclientset"
+	hypervisor "github.com/dippynark/kube-qemu/pkg/informers/internalversion/hypervisor"
 	internalinterfaces "github.com/dippynark/kube-qemu/pkg/informers/internalversion/internalinterfaces"
 	runtime "k8s.io/apimachinery/pkg/runtime"
 	schema "k8s.io/apimachinery/pkg/runtime/schema"
@@ -108,4 +109,10 @@ type SharedInformerFactory interface {
 	internalinterfaces.SharedInformerFactory
 	ForResource(resource schema.GroupVersionResource) (GenericInformer, error)
 	WaitForCacheSync(stopCh <-chan struct{}) map[reflect.Type]bool
+
+	Hypervisor() hypervisor.Interface
+}
+
+func (f *sharedInformerFactory) Hypervisor() hypervisor.Interface {
+	return hypervisor.New(f)
 }
