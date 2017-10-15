@@ -1,0 +1,5 @@
+FROM alpine:3.5
+
+ADD bin/kube-qemu-apiserver_linux_amd64 /usr/bin/kube-qemu-apiserver
+
+CMD ["/usr/bin/kube-qemu-apiserver"]

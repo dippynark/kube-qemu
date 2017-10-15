@@ -25,8 +25,8 @@ import (
 	"k8s.io/apiserver/pkg/registry/rest"
 	genericapiserver "k8s.io/apiserver/pkg/server"
 	"k8s.io/kubernetes/pkg/api/install"
-	"k8s.io/kubernetes/staging/src/k8s.io/sample-apiserver/pkg/apis/wardle"
 
+	"github.com/dippynark/kube-qemu/pkg/apis/hypervisor"
 	hypervisorregistry "github.com/dippynark/kube-qemu/pkg/registry"
 	virtualmachinestorage "github.com/dippynark/kube-qemu/pkg/registry/hypervisor/virtualmachine"
 )
@@ -65,7 +65,7 @@ type Config struct {
 	ExtraConfig   ExtraConfig
 }
 
-// WardleServer contains state for a Kubernetes cluster master/api server.
+// HypervisorServer contains state for a Kubernetes cluster master/api server.
 type HypervisorServer struct {
 	GenericAPIServer *genericapiserver.GenericAPIServer
 }
@@ -106,7 +106,7 @@ func (c completedConfig) New() (*HypervisorServer, error) {
 		GenericAPIServer: genericServer,
 	}
 
-	apiGroupInfo := genericapiserver.NewDefaultAPIGroupInfo(wardle.GroupName, registry, Scheme, metav1.ParameterCodec, Codecs)
+	apiGroupInfo := genericapiserver.NewDefaultAPIGroupInfo(hypervisor.GroupName, registry, Scheme, metav1.ParameterCodec, Codecs)
 	apiGroupInfo.GroupMeta.GroupVersion = v1alpha1.SchemeGroupVersion
 	v1alpha1storage := map[string]rest.Storage{}
 	v1alpha1storage["virtualmachines"] = hypervisorregistry.RESTInPeace(virtualmachinestorage.NewREST(Scheme, c.GenericConfig.RESTOptionsGetter))
