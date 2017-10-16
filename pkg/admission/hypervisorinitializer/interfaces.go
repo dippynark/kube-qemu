@@ -14,7 +14,7 @@ limitations under the License.
 package hypervisorinitializer
 
 import (
-	informers "github.com/dippynark/kube-qemu/pkg/informers/internalversion"
+	informers "github.com/dippynark/kube-qemu/pkg/client/informers_generated/internalversion"
 	"k8s.io/apiserver/pkg/admission"
 )
 

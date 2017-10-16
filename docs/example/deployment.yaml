@@ -1,14 +1,17 @@
-apiVersion: v1
-kind: ReplicationController
+apiVersion: apps/v1beta2
+kind: Deployment
 metadata:
-  name: hypervisor-server
-  namespace: hypervisor
+  name: kube-qemu-apiserver
+  namespace: kube-qemu
   labels:
     apiserver: "true"
 spec:
   replicas: 1
+  strategy:
+    type: Recreate
   selector:
-    apiserver: "true"
+    matchLabels:
+     apiserver: "true"
   template:
     metadata:
       labels:
