@@ -7,6 +7,7 @@ import (
 // +genclient=true
 // +k8s:deepcopy-gen:interfaces=k8s.io/apimachinery/pkg/runtime.Object
 
+// +resource:path=virtualmachines
 type VirtualMachine struct {
 	metav1.TypeMeta
 	metav1.ObjectMeta
@@ -25,9 +26,7 @@ type VirtualMachineList struct {
 }
 
 type VirtualMachineSpec struct {
-	Name string
 }
 
 type VirtualMachineStatus struct {
-	Running bool
 }

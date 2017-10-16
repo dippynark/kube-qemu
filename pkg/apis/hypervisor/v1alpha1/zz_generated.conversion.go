@@ -105,7 +105,6 @@ func Convert_hypervisor_VirtualMachineList_To_v1alpha1_VirtualMachineList(in *hy
 }
 
 func autoConvert_v1alpha1_VirtualMachineSpec_To_hypervisor_VirtualMachineSpec(in *VirtualMachineSpec, out *hypervisor.VirtualMachineSpec, s conversion.Scope) error {
-	out.Name = in.Name
 	return nil
 }
 
@@ -115,7 +114,6 @@ func Convert_v1alpha1_VirtualMachineSpec_To_hypervisor_VirtualMachineSpec(in *Vi
 }
 
 func autoConvert_hypervisor_VirtualMachineSpec_To_v1alpha1_VirtualMachineSpec(in *hypervisor.VirtualMachineSpec, out *VirtualMachineSpec, s conversion.Scope) error {
-	out.Name = in.Name
 	return nil
 }
 
@@ -125,7 +123,6 @@ func Convert_hypervisor_VirtualMachineSpec_To_v1alpha1_VirtualMachineSpec(in *hy
 }
 
 func autoConvert_v1alpha1_VirtualMachineStatus_To_hypervisor_VirtualMachineStatus(in *VirtualMachineStatus, out *hypervisor.VirtualMachineStatus, s conversion.Scope) error {
-	out.Running = in.Running
 	return nil
 }
 
@@ -135,7 +132,6 @@ func Convert_v1alpha1_VirtualMachineStatus_To_hypervisor_VirtualMachineStatus(in
 }
 
 func autoConvert_hypervisor_VirtualMachineStatus_To_v1alpha1_VirtualMachineStatus(in *hypervisor.VirtualMachineStatus, out *VirtualMachineStatus, s conversion.Scope) error {
-	out.Running = in.Running
 	return nil
 }
 

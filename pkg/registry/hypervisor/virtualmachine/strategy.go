@@ -50,7 +50,7 @@ func MatchVirtualMachine(label labels.Selector, field fields.Selector) storage.S
 	}
 }
 
-// fischerToSelectableFields returns a field set that represents the object.
+// virtualMachineToSelectableFields returns a field set that represents the object.
 func virtualMachineToSelectableFields(obj *hypervisor.VirtualMachine) fields.Set {
 	return generic.ObjectMetaFieldsSet(&obj.ObjectMeta, true)
 }
@@ -61,7 +61,7 @@ type virtualMachineStrategy struct {
 }
 
 func (virtualMachineStrategy) NamespaceScoped() bool {
-	return false
+	return true
 }
 
 func (virtualMachineStrategy) PrepareForCreate(ctx genericapirequest.Context, obj runtime.Object) {
