@@ -19,7 +19,7 @@ type VirtualMachine struct {
 
 type VirtualMachineList struct {
 	metav1.TypeMeta
-	metav1.ObjectMeta
+	metav1.ListMeta
 
 	Items []VirtualMachine
 }

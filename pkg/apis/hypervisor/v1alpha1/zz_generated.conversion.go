@@ -79,7 +79,7 @@ func Convert_hypervisor_VirtualMachine_To_v1alpha1_VirtualMachine(in *hypervisor
 }
 
 func autoConvert_v1alpha1_VirtualMachineList_To_hypervisor_VirtualMachineList(in *VirtualMachineList, out *hypervisor.VirtualMachineList, s conversion.Scope) error {
-	out.ObjectMeta = in.ObjectMeta
+	out.ListMeta = in.ListMeta
 	out.Items = *(*[]hypervisor.VirtualMachine)(unsafe.Pointer(&in.Items))
 	return nil
 }
@@ -90,7 +90,7 @@ func Convert_v1alpha1_VirtualMachineList_To_hypervisor_VirtualMachineList(in *Vi
 }
 
 func autoConvert_hypervisor_VirtualMachineList_To_v1alpha1_VirtualMachineList(in *hypervisor.VirtualMachineList, out *VirtualMachineList, s conversion.Scope) error {
-	out.ObjectMeta = in.ObjectMeta
+	out.ListMeta = in.ListMeta
 	if in.Items == nil {
 		out.Items = make([]VirtualMachine, 0)
 	} else {

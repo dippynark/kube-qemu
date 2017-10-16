@@ -1,0 +1,6 @@
+apiVersion: hypervisor.lukeaddison.co.uk/v1alpha1
+kind: VirtualMachine
+metadata:
+  name: test
+spec:
+  name: test
