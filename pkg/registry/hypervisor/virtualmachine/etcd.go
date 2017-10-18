@@ -26,7 +26,6 @@ func NewREST(scheme *runtime.Scheme, optsGetter generic.RESTOptionsGetter) (*reg
 	strategy := NewStrategy(scheme)
 
 	store := &genericregistry.Store{
-		Copier:                   scheme,
 		NewFunc:                  func() runtime.Object { return &hypervisor.VirtualMachine{} },
 		NewListFunc:              func() runtime.Object { return &hypervisor.VirtualMachineList{} },
 		PredicateFunc:            MatchVirtualMachine,

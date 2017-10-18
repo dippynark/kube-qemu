@@ -137,7 +137,7 @@ func (o HypervisorServerOptions) RunHypervisorServer(stopCh <-chan struct{}) err
 		return err
 	}
 
-	server.GenericAPIServer.AddPostStartHook("start-sample-server-informers", func(context genericapiserver.PostStartHookContext) error {
+	server.GenericAPIServer.AddPostStartHook("start-kube-qemu-informers", func(context genericapiserver.PostStartHookContext) error {
 		config.GenericConfig.SharedInformerFactory.Start(context.StopCh)
 		return nil
 	})

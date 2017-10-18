@@ -37,10 +37,10 @@ func GetAttrs(obj runtime.Object) (labels.Set, fields.Set, bool, error) {
 	if !ok {
 		return nil, nil, false, fmt.Errorf("given object is not a VirtualMachine.")
 	}
-	return labels.Set(apiserver.ObjectMeta.Labels), virtualMachineToSelectableFields(apiserver), apiserver.Initializers != nil, nil
+	return labels.Set(apiserver.ObjectMeta.Labels), VirtualMachineToSelectableFields(apiserver), apiserver.Initializers != nil, nil
 }
 
-// MatchFischer is the filter used by the generic etcd backend to watch events
+// MatchVirtualMachine is the filter used by the generic etcd backend to watch events
 // from etcd to clients of the apiserver only interested in specific labels/fields.
 func MatchVirtualMachine(label labels.Selector, field fields.Selector) storage.SelectionPredicate {
 	return storage.SelectionPredicate{
@@ -50,8 +50,8 @@ func MatchVirtualMachine(label labels.Selector, field fields.Selector) storage.S
 	}
 }
 
-// virtualMachineToSelectableFields returns a field set that represents the object.
-func virtualMachineToSelectableFields(obj *hypervisor.VirtualMachine) fields.Set {
+// VirtualMachineToSelectableFields returns a field set that represents the object.
+func VirtualMachineToSelectableFields(obj *hypervisor.VirtualMachine) fields.Set {
 	return generic.ObjectMetaFieldsSet(&obj.ObjectMeta, true)
 }
 
