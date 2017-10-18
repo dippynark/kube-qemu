@@ -21,7 +21,6 @@ import (
 	"k8s.io/apimachinery/pkg/apimachinery/announced"
 	"k8s.io/apimachinery/pkg/apimachinery/registered"
 	"k8s.io/apimachinery/pkg/runtime"
-	"k8s.io/apimachinery/pkg/util/sets"
 )
 
 // Install registers the API group and adds types to a scheme
@@ -29,7 +28,6 @@ func Install(groupFactoryRegistry announced.APIGroupFactoryRegistry, registry *r
 	if err := announced.NewGroupMetaFactory(
 		&announced.GroupMetaFactoryArgs{
 			GroupName:                  hypervisor.GroupName,
-			RootScopedKinds:            sets.NewString("VirtualMachine", "VirtualMachineList"),
 			VersionPreferenceOrder:     []string{v1alpha1.SchemeGroupVersion.Version},
 			AddInternalObjectsToScheme: hypervisor.AddToScheme,
 		},
